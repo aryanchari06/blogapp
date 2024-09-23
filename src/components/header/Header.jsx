@@ -56,7 +56,7 @@ function Header() {
                 ) : null)
             }
             {
-              authStatus && (
+              authStatus && (   //if authStatus is true, return the logoout button
                 <li>
                   <LogOutBtn />
                 </li>

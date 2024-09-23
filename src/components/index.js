@@ -1,13 +1,19 @@
 import Header from "./header/Header";
 import Footer from './footer/Footer'
-import Container from "postcss";
+import Container from "./container/Container";
 import Logo from "./Logo";
 import LogOutBtn from './footer/LogOutBtn'
+import Input from'./Input'
+import Postcard from './Postcard'
+import Select from './Select'
 
 export {
     Header,
     Footer,
     Container,
     Logo,
-    LogOutBtn
+    LogOutBtn,
+    Input,
+    Postcard,
+    Select,
 }

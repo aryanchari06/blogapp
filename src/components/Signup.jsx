@@ -1,27 +1,27 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import authService from '../appwrite/auth'
-import Input from './Input'
-import Button from './Button'
+import { Link, useNavigate } from 'react-router-dom'
+import { login } from '../store/authSlice'
+import { Button, Input, Logo } from './index'
+import { useDispatch } from 'react-redux'
+import { useForm } from 'react-hook-form'
 
 function Signup() {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
     const [error, setError] = useState('')
+    const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
 
-
     const create = async (data) => {
-        error('')
+        setError('')
         try {
             const userData = await authService.createAccount(data)
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if (userData) dispatch(login(userData))
+                if (userData)
+                    dispatch(login(userData))
                 navigate('/')
-
             }
         } catch (error) {
             setError(error.message)
@@ -48,48 +48,41 @@ function Signup() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
                 <form onSubmit={handleSubmit(create)}>
-                    <div className="space-y-5">
+                    <div className='space-y-5'>
                         <Input
-                            label="Full name: "
-                            placeholder="ENter your name..."
-                            {...register('name', {
+                            label="Full Name: "
+                            placeholder="Enter your full name"
+                            {...register("name", {
                                 required: true,
                             })}
                         />
-
                         <Input
                             label="Email: "
-                            placeholder="Enter your email..."
-                            type='email'
-                            {
-                            ...register('email', {
+                            placeholder="Enter your email"
+                            type="email"
+                            {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                                         "Email address must be a valid address",
                                 }
-                            })
-                            } />
-
+                            })}
+                        />
                         <Input
                             label="Password: "
-                            placeholder="Enter your password..."
-                            type='password'
-                            {
-                            ...register('password', {
-                                required: true
-                            })
-                            }
+                            type="password"
+                            placeholder="Enter your password"
+                            {...register("password", {
+                                required: true,
+                            })}
                         />
-
-                        <Button
-                            type='submit'
-                            className='w-full'
-                        >Create Account</Button>
+                        <Button type="submit" className="w-full">
+                            Create Account
+                        </Button>
                     </div>
                 </form>
-
             </div>
+
         </div>
     )
 }
