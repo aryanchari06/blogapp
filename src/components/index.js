@@ -6,6 +6,7 @@ import LogOutBtn from './footer/LogOutBtn'
 import Input from'./Input'
 import Postcard from './Postcard'
 import Select from './Select'
+import RTE from "./RTE";
 
 export {
     Header,
@@ -16,4 +17,5 @@ export {
     Input,
     Postcard,
     Select,
+    RTE,
 }
