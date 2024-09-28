@@ -30,8 +30,7 @@ function App() {
       <div className='w-full block'>
         <Header />
         <main>
-          todo:
-          {/* todo: <Outlet /> */}
+          <Outlet />
         </main>
         <Footer />
       </div>

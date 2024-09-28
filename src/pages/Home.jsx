@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import appwriteService from '../../appwrite/config'
-import { Container, Postcard } from '../index'
+import appwriteService from '../appwrite/config'
+import { Container, Postcard } from '../components/index'
 
 
 function Home() {
