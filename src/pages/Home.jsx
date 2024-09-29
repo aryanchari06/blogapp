@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import appwriteService from '../appwrite/config'
 import { Container, Postcard } from '../components/index'
+import { useSelector } from 'react-redux'
 
 
 function Home() {
     const [posts, setPosts] = useState([])
-
     useEffect(() => {
         appwriteService.getPosts([]).then((posts) => {
             if (posts) {
@@ -35,7 +35,7 @@ function Home() {
                     {
                         posts.map((post) => (
                             <div key={post.$id} className='p-2 w-1/4'>
-                                <Postcard post={post} />
+                                <Postcard {...post} />
                             </div>
                         ))
                     }

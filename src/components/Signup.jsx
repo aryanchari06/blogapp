@@ -13,16 +13,19 @@ function Signup() {
     const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
+        console.log(data)
         setError('')
         try {
-            const userData = await authService.createAccount(data)
+            const userData = await authService.createAccount({ ...data })
             if (userData) {
                 const userData = await authService.getCurrentUser()
+                console.log('Userdata', userData)
                 if (userData)
                     dispatch(login(userData))
                 navigate('/')
             }
         } catch (error) {
+            console.log(error)
             setError(error.message)
         }
     }
@@ -62,7 +65,7 @@ function Signup() {
                             {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                    matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                                         "Email address must be a valid address",
                                 }
                             })}
