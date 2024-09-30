@@ -11,7 +11,7 @@ import PostForm from './post-form/PostForm'
 import Postcard from "./Postcard";
 import AuthLayout from './AuthLayout'
 import Button from './Button'
-import Signup from "./Signup.jsx";
+import Signup from "./Signup";
 
 export {
     Header,
@@ -27,5 +27,5 @@ export {
     Postcard,
     AuthLayout,
     Button,
-    Signup
+    Signup,
 }
