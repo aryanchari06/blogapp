@@ -6,12 +6,12 @@ import LogOutBtn from './footer/LogOutBtn'
 import Input from'./Input'
 import Select from './Select'
 import RTE from "./RTE";
-import Signup from "./SignUp.jsx";
 import Login from "./Login";
 import PostForm from './post-form/PostForm'
 import Postcard from "./Postcard";
 import AuthLayout from './AuthLayout'
 import Button from './Button'
+import Signup from "./SignUp";
 
 export {
     Header,
@@ -22,10 +22,10 @@ export {
     Input,
     Select,
     RTE,
-    Signup,
     Login,
     PostForm,
     Postcard,
     AuthLayout,
-    Button
+    Button,
+    Signup
 }
