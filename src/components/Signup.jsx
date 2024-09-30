@@ -6,7 +6,7 @@ import { login } from '../store/authSlice'
 import { Button, Input, Logo } from './index'
 import { useForm } from 'react-hook-form'
 
-function Signup() {
+function SignUp() {
     const navigate = useNavigate()
     const [error, setError] = useState('')
     const dispatch = useDispatch()
@@ -89,4 +89,4 @@ function Signup() {
     )
 }
 
-export default Signup
+export default SignUp
