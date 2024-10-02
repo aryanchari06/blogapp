@@ -14,7 +14,7 @@ function Header() {
     { name: 'All posts', slug: '/all-posts', active: authStatus },
     { name: 'Add post', slug: '/add-post', active: authStatus },
   ];
-
+//hi
   return (
     <header className='py-4 shadow-lg bg-gray-800 text-white'>
       <Container>
